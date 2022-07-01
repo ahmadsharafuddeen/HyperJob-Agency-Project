@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vacancy Creation Page</title>
+</head>
+<body>
+    {% if request.user.is_authenticated and request.user.is_staff %}
+        <form method="post" action="/vacancy/new">{% csrf_token %}
+            <table>{{ form.as_table }}</table>
+            <button type="submit">Send</button>
+        </form>
+    {% endif %}
+</body>
+</html>
